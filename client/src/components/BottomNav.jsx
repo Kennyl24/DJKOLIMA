@@ -9,7 +9,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ContactForm  from './ContactForm.jsx';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-
+import { SocialIcon } from 'react-social-icons';
 
 class BottomNav extends React.Component {
   constructor(props) {
@@ -38,15 +38,41 @@ class BottomNav extends React.Component {
       <br />
       <br />
       <br />
-      <ContactForm />
+      <div style={{argin:'auto', display:'flex'}}>
+      {/* <div style={{margin:'auto'}}>
+      <IconButton color="secondary" aria-label="Add an alarm">
+        <img href="https://png.icons8.com/metro/1600/facebook.png" alt=""/>      
+      </IconButton>
+      <IconButton color="secondary" aria-label="Add an alarm">
+        <Icon>pause</Icon>
+      </IconButton>
       <IconButton color="secondary" aria-label="Add an alarm">
         <Icon>alarm</Icon>
       </IconButton>
-      <br />
+      </div> */}
+    <div style={{margin:'auto'}}>
+        <IconButton color="secondary" aria-label="Add an alarm">
+    <SocialIcon style={{ height: 200, width: 200 }} url="http://twitter.com/" />
+    </IconButton>
+    <br />
+    <IconButton color="secondary" aria-label="Add an alarm">
+    <SocialIcon style={{ height: 200, width: 200 }} url="http://facebook.com/" />
+    </IconButton>
+    <br />
+    <IconButton color="secondary" aria-label="Add an alarm">
+    <SocialIcon style={{ height: 200, width: 200 }}url="http://instagram.com/" />
+    </IconButton>
+    </div>
+      <ContactForm style={{margin:'auto'}}/>
+      </div>
       <br />
         <footer style={{textAlign:'center'}}>
           Designed by Kenneth Laprelle
-          </footer>
+      </footer>
+      <br />
+      <br />
+      <br />
+      <br />
       </Paper>
       </MuiThemeProvider>
     );

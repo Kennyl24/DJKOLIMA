@@ -1,8 +1,11 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+
 import ReactDOM from 'react-dom';
 import FlatButton from 'material-ui/FlatButton';
-
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { SocialIcon } from 'react-social-icons';
+import IconButton from '@material-ui/core/IconButton';
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
@@ -59,9 +62,8 @@ messageChange(event, newValue){
 }
 render(){
   return (
-  <div>
-    <div style={{marginLeft:'25%'}}>
-    <TextField
+  <div style={{width:'40%', marginRight:'10%'}}>
+    {/* <TextField
       hintText="Name"
       onChange={this.nameChange}
     /><br />
@@ -87,11 +89,73 @@ render(){
       multiLine={true}
       rows={2}
       rowsMax={4}
-    /><br />
-    <FlatButton backgroundColor='purple'>
-      SUBMIT
-    </FlatButton>
-  </div>
+    /> */}
+    <TextField
+          id="search"
+          // label="Search field"
+          type="search"
+          margin="normal"
+          placeholder="Name"
+          required={true}
+          fullWidth={true}
+        />
+        <br />
+         <TextField
+          id="search"
+          // label="Search field"
+          type="search"
+          margin="normal"
+          placeholder="phone number"
+          required={true}
+          fullWidth={true}
+        />
+        <br />
+         <TextField
+          id="search"
+          // label="Search field"
+          type="search"
+          margin="normal"
+          placeholder="event type"
+          // required={true}
+          fullWidth={true}
+        />
+        <br />
+         <TextField
+          id="search"
+          // label="Search field"
+          type="search"
+          margin="normal"
+          placeholder="date of event"
+          // required={true}
+          fullWidth={true}
+        />
+        <br />
+         <TextField
+          id="search"
+          // label="Search field"
+          type="search"
+          margin="normal"
+          placeholder="Placeholder"
+          // required={true}
+          fullWidth={true}
+        />
+        <br />
+         <TextField
+          id="search"
+          // label="Search field"
+          type="search"
+          margin="normal"
+          placeholder="message"
+          multiline={true}
+          required={true}
+          fullWidth={true}
+        />
+    <br/>
+     <Button variant="raised" color="secondary">
+      Submit
+    </Button>
+    <br />
+    <br />
   </div>
 );
 }

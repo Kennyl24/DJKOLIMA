@@ -14,6 +14,7 @@ class LeadBar extends React.Component {
         <FlatButton label="Home" style={{color:'white'}}/>
         <FlatButton label="Weddings" style={{color:'white'}} />
         <FlatButton label="Quince's" style={{color:'white'}}/>
+        <FlatButton label="Other Events" style={{color:'white'}}/>
         <FlatButton label="Bookings" style={{color:'white'}}/>
       </div>
     );
@@ -25,7 +26,7 @@ class LeadBar extends React.Component {
     return (
       <MuiThemeProvider>
       <AppBar
-        title='DJ COLIMA'
+        title='DJ KOLIMA'
         style={{backgroundColor:'#3f06f5', position:'fixed', top: '0'}}
         titleStyle={{fontSize:'40px'}}
         iconElementLeft={leftButtons}
