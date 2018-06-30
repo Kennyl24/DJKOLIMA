@@ -67,6 +67,10 @@
 	
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 	
+	var _TurnTable = __webpack_require__(/*! ./components/TurnTable.jsx */ 500);
+	
+	var _TurnTable2 = _interopRequireDefault(_TurnTable);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_reactDom2.default.render(_react2.default.createElement(
@@ -76,7 +80,8 @@
 	    _reactRouterDom.Switch,
 	    null,
 	    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _HomePage2.default }),
-	    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gallery', component: _Gallery2.default })
+	    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/gallery', component: _Gallery2.default }),
+	    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/disc', component: _TurnTable2.default })
 	  )
 	), document.getElementById('app'));
 
@@ -26229,7 +26234,12 @@
 	      return _react2.default.createElement(
 	        _styles.MuiThemeProvider,
 	        { theme: theme },
-	        _react2.default.createElement(_GalleryTabs2.default, null),
+	        _react2.default.createElement(_LeadBar2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { style: { position: 'relative', top: '70px' } },
+	          _react2.default.createElement(_GalleryTabs2.default, null)
+	        ),
 	        _react2.default.createElement(_MusicPlayer2.default, null)
 	      );
 	    }
@@ -48986,31 +48996,19 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _GridList = __webpack_require__(/*! material-ui/GridList */ 392);
+	var _MuiThemeProvider = __webpack_require__(/*! material-ui/styles/MuiThemeProvider */ 179);
 	
-	var _IconButton = __webpack_require__(/*! material-ui/IconButton */ 330);
-	
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-	
-	var _starBorder = __webpack_require__(/*! material-ui/svg-icons/toggle/star-border */ 396);
-	
-	var _starBorder2 = _interopRequireDefault(_starBorder);
-	
-	var _styles = __webpack_require__(/*! @material-ui/core/styles */ 80);
-	
-	var _LeadBar = __webpack_require__(/*! ./LeadBar.jsx */ 178);
-	
-	var _LeadBar2 = _interopRequireDefault(_LeadBar);
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 	
 	var _GalleryImages = __webpack_require__(/*! ./GalleryImages.jsx */ 397);
 	
 	var _GalleryImages2 = _interopRequireDefault(_GalleryImages);
 	
-	var _Paper = __webpack_require__(/*! @material-ui/core/Paper */ 405);
+	var _LeadBar = __webpack_require__(/*! ./LeadBar.jsx */ 178);
 	
-	var _Paper2 = _interopRequireDefault(_Paper);
+	var _LeadBar2 = _interopRequireDefault(_LeadBar);
 	
-	var _Tabs = __webpack_require__(/*! @material-ui/core/Tabs */ 407);
+	var _Tabs = __webpack_require__(/*! material-ui/Tabs */ 398);
 	
 	var _Slider = __webpack_require__(/*! material-ui/Slider */ 403);
 	
@@ -49032,12 +49030,6 @@
 	    fontWeight: 400
 	  }
 	};
-	var theme = (0, _styles.createMuiTheme)({
-	  palette: {
-	    primary: { main: 'rgb(63, 6, 245)' },
-	    secondary: { main: 'rgb(63, 6, 245)' }
-	  }
-	});
 	
 	var GalleryTabs = function (_React$Component) {
 	  _inherits(GalleryTabs, _React$Component);
@@ -49055,53 +49047,23 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        _styles.MuiThemeProvider,
-	        { theme: theme },
+	        _MuiThemeProvider2.default,
+	        null,
 	        _react2.default.createElement(
 	          _Tabs.Tabs,
-	          null,
+	          { style: { position: 'relative' } },
 	          _react2.default.createElement(
 	            _Tabs.Tab,
 	            { label: 'Quinces' },
 	            _react2.default.createElement(_GalleryImages2.default, null)
 	          ),
-	          _react2.default.createElement(
-	            _Tabs.Tab,
-	            { label: 'Weddings' },
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'h2',
-	                { style: styles.headline },
-	                'Tab Two'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'This is another example tab.'
-	              )
-	            )
-	          ),
+	          _react2.default.createElement(_Tabs.Tab, { label: 'Weddings' }),
 	          _react2.default.createElement(
 	            _Tabs.Tab,
 	            {
 	              label: 'Other Events'
 	            },
-	            _react2.default.createElement(
-	              'div',
-	              null,
-	              _react2.default.createElement(
-	                'h2',
-	                { style: styles.headline },
-	                'Tab Three'
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                null,
-	                'This is a third example tab.'
-	              )
-	            )
+	            _react2.default.createElement(_GalleryImages2.default, null)
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -51700,554 +51662,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 407 */
-/*!*******************************************!*\
-  !*** ./~/@material-ui/core/Tabs/index.js ***!
-  \*******************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	Object.defineProperty(exports, "default", {
-	  enumerable: true,
-	  get: function get() {
-	    return _Tabs.default;
-	  }
-	});
-	
-	var _Tabs = _interopRequireDefault(__webpack_require__(/*! ./Tabs */ 408));
-
-/***/ },
-/* 408 */
-/*!******************************************!*\
-  !*** ./~/@material-ui/core/Tabs/Tabs.js ***!
-  \******************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = exports.styles = void 0;
-	
-	var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/extends */ 167));
-	
-	var _objectSpread2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/objectSpread */ 85));
-	
-	var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/objectWithoutProperties */ 87));
-	
-	var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/classCallCheck */ 155));
-	
-	var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/createClass */ 156));
-	
-	var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/possibleConstructorReturn */ 157));
-	
-	var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/inherits */ 160));
-	
-	var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/defineProperty */ 86));
-	
-	var _react = _interopRequireDefault(__webpack_require__(/*! react */ 1));
-	
-	var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ 28));
-	
-	var _warning = _interopRequireDefault(__webpack_require__(/*! warning */ 83));
-	
-	var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ 371));
-	
-	var _reactEventListener = _interopRequireDefault(__webpack_require__(/*! react-event-listener */ 409));
-	
-	var _debounce = _interopRequireDefault(__webpack_require__(/*! debounce */ 410));
-	
-	var _normalizeScrollLeft = __webpack_require__(/*! normalize-scroll-left */ 411);
-	
-	var _scroll = _interopRequireDefault(__webpack_require__(/*! scroll */ 412));
-	
-	var _ScrollbarSize = _interopRequireDefault(__webpack_require__(/*! ./ScrollbarSize */ 415));
-	
-	var _withStyles = _interopRequireDefault(__webpack_require__(/*! ../styles/withStyles */ 166));
-	
-	var _TabIndicator = _interopRequireDefault(__webpack_require__(/*! ./TabIndicator */ 416));
-	
-	var _TabScrollButton = _interopRequireDefault(__webpack_require__(/*! ./TabScrollButton */ 417));
-	
-	/* eslint-disable no-restricted-globals */
-	// < 1kb payload overhead when lodash/debounce is > 3kb.
-	var styles = function styles(theme) {
-	  return {
-	    root: {
-	      overflow: 'hidden',
-	      minHeight: 48,
-	      WebkitOverflowScrolling: 'touch' // Add iOS momentum scrolling.
-	
-	    },
-	    flexContainer: {
-	      display: 'flex'
-	    },
-	    scroller: {
-	      position: 'relative',
-	      display: 'inline-block',
-	      flex: '1 1 auto',
-	      whiteSpace: 'nowrap'
-	    },
-	    fixed: {
-	      overflowX: 'hidden',
-	      width: '100%'
-	    },
-	    scrollable: {
-	      overflowX: 'scroll'
-	    },
-	    centered: {
-	      justifyContent: 'center'
-	    },
-	    scrollButtons: {},
-	    scrollButtonsAuto: (0, _defineProperty2.default)({}, theme.breakpoints.down('xs'), {
-	      display: 'none'
-	    }),
-	    indicator: {}
-	  };
-	};
-	
-	exports.styles = styles;
-	
-	var Tabs =
-	/*#__PURE__*/
-	function (_React$Component) {
-	  (0, _inherits2.default)(Tabs, _React$Component);
-	
-	  function Tabs() {
-	    var _ref;
-	
-	    var _temp, _this;
-	
-	    (0, _classCallCheck2.default)(this, Tabs);
-	
-	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return (0, _possibleConstructorReturn2.default)(_this, (_temp = _this = (0, _possibleConstructorReturn2.default)(this, (_ref = Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call.apply(_ref, [this].concat(args))), _this.tabs = null, _this.valueToIndex = new Map(), _this.handleResize = (0, _debounce.default)(function () {
-	      _this.updateIndicatorState(_this.props);
-	
-	      _this.updateScrollButtonState();
-	    }, 166), _this.handleTabsScroll = (0, _debounce.default)(function () {
-	      _this.updateScrollButtonState();
-	    }, 166), _this.state = {
-	      indicatorStyle: {},
-	      scrollerStyle: {
-	        marginBottom: 0
-	      },
-	      showLeftScroll: false,
-	      showRightScroll: false,
-	      mounted: false
-	    }, _this.getConditionalElements = function () {
-	      var _this$props = _this.props,
-	          classes = _this$props.classes,
-	          scrollable = _this$props.scrollable,
-	          ScrollButtonComponent = _this$props.ScrollButtonComponent,
-	          scrollButtons = _this$props.scrollButtons,
-	          theme = _this$props.theme;
-	      var conditionalElements = {};
-	      conditionalElements.scrollbarSizeListener = scrollable ? _react.default.createElement(_ScrollbarSize.default, {
-	        onLoad: _this.handleScrollbarSizeChange,
-	        onChange: _this.handleScrollbarSizeChange
-	      }) : null;
-	      var showScrollButtons = scrollable && (scrollButtons === 'auto' || scrollButtons === 'on');
-	      conditionalElements.scrollButtonLeft = showScrollButtons ? _react.default.createElement(ScrollButtonComponent, {
-	        direction: theme && theme.direction === 'rtl' ? 'right' : 'left',
-	        onClick: _this.handleLeftScrollClick,
-	        visible: _this.state.showLeftScroll,
-	        className: (0, _classnames.default)(classes.scrollButtons, (0, _defineProperty2.default)({}, classes.scrollButtonsAuto, scrollButtons === 'auto'))
-	      }) : null;
-	      conditionalElements.scrollButtonRight = showScrollButtons ? _react.default.createElement(ScrollButtonComponent, {
-	        direction: theme && theme.direction === 'rtl' ? 'left' : 'right',
-	        onClick: _this.handleRightScrollClick,
-	        visible: _this.state.showRightScroll,
-	        className: (0, _classnames.default)(classes.scrollButtons, (0, _defineProperty2.default)({}, classes.scrollButtonsAuto, scrollButtons === 'auto'))
-	      }) : null;
-	      return conditionalElements;
-	    }, _this.getTabsMeta = function (value, direction) {
-	      var tabsMeta;
-	
-	      if (_this.tabs) {
-	        var rect = _this.tabs.getBoundingClientRect(); // create a new object with ClientRect class props + scrollLeft
-	
-	
-	        tabsMeta = {
-	          clientWidth: _this.tabs ? _this.tabs.clientWidth : 0,
-	          scrollLeft: _this.tabs ? _this.tabs.scrollLeft : 0,
-	          scrollLeftNormalized: _this.tabs ? (0, _normalizeScrollLeft.getNormalizedScrollLeft)(_this.tabs, direction) : 0,
-	          scrollWidth: _this.tabs ? _this.tabs.scrollWidth : 0,
-	          left: rect.left,
-	          right: rect.right
-	        };
-	      }
-	
-	      var tabMeta;
-	
-	      if (_this.tabs && value !== false) {
-	        var children = _this.tabs.children[0].children;
-	
-	        if (children.length > 0) {
-	          var tab = children[_this.valueToIndex.get(value)];
-	
-	          process.env.NODE_ENV !== "production" ? (0, _warning.default)(tab, "Material-UI: the value provided `".concat(value, "` is invalid")) : void 0;
-	          tabMeta = tab ? tab.getBoundingClientRect() : null;
-	        }
-	      }
-	
-	      return {
-	        tabsMeta: tabsMeta,
-	        tabMeta: tabMeta
-	      };
-	    }, _this.handleLeftScrollClick = function () {
-	      if (_this.tabs) {
-	        _this.moveTabsScroll(-_this.tabs.clientWidth);
-	      }
-	    }, _this.handleRightScrollClick = function () {
-	      if (_this.tabs) {
-	        _this.moveTabsScroll(_this.tabs.clientWidth);
-	      }
-	    }, _this.handleScrollbarSizeChange = function (_ref2) {
-	      var scrollbarHeight = _ref2.scrollbarHeight;
-	
-	      _this.setState({
-	        scrollerStyle: {
-	          marginBottom: -scrollbarHeight
-	        }
-	      });
-	    }, _this.moveTabsScroll = function (delta) {
-	      var theme = _this.props.theme;
-	
-	      if (_this.tabs) {
-	        var multiplier = theme.direction === 'rtl' ? -1 : 1;
-	        var nextScrollLeft = _this.tabs.scrollLeft + delta * multiplier; // Fix for Edge
-	
-	        var invert = theme.direction === 'rtl' && (0, _normalizeScrollLeft.detectScrollType)() === 'reverse' ? -1 : 1;
-	
-	        _scroll.default.left(_this.tabs, invert * nextScrollLeft);
-	      }
-	    }, _this.scrollSelectedIntoView = function () {
-	      var _this$props2 = _this.props,
-	          theme = _this$props2.theme,
-	          value = _this$props2.value;
-	
-	      var _this$getTabsMeta = _this.getTabsMeta(value, theme.direction),
-	          tabsMeta = _this$getTabsMeta.tabsMeta,
-	          tabMeta = _this$getTabsMeta.tabMeta;
-	
-	      if (!tabMeta || !tabsMeta) {
-	        return;
-	      }
-	
-	      if (tabMeta.left < tabsMeta.left) {
-	        // left side of button is out of view
-	        var nextScrollLeft = tabsMeta.scrollLeft + (tabMeta.left - tabsMeta.left);
-	
-	        _scroll.default.left(_this.tabs, nextScrollLeft);
-	      } else if (tabMeta.right > tabsMeta.right) {
-	        // right side of button is out of view
-	        var _nextScrollLeft = tabsMeta.scrollLeft + (tabMeta.right - tabsMeta.right);
-	
-	        _scroll.default.left(_this.tabs, _nextScrollLeft);
-	      }
-	    }, _this.updateScrollButtonState = function () {
-	      var _this$props3 = _this.props,
-	          scrollable = _this$props3.scrollable,
-	          scrollButtons = _this$props3.scrollButtons,
-	          theme = _this$props3.theme;
-	
-	      if (_this.tabs && scrollable && scrollButtons !== 'off') {
-	        var _this$tabs = _this.tabs,
-	            scrollWidth = _this$tabs.scrollWidth,
-	            clientWidth = _this$tabs.clientWidth;
-	        var scrollLeft = (0, _normalizeScrollLeft.getNormalizedScrollLeft)(_this.tabs, theme.direction);
-	        var showLeftScroll = theme.direction === 'rtl' ? scrollWidth > clientWidth + scrollLeft : scrollLeft > 0;
-	        var showRightScroll = theme.direction === 'rtl' ? scrollLeft > 0 : scrollWidth > clientWidth + scrollLeft;
-	
-	        if (showLeftScroll !== _this.state.showLeftScroll || showRightScroll !== _this.state.showRightScroll) {
-	          _this.setState({
-	            showLeftScroll: showLeftScroll,
-	            showRightScroll: showRightScroll
-	          });
-	        }
-	      }
-	    }, _temp));
-	  }
-	
-	  (0, _createClass2.default)(Tabs, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      // eslint-disable-next-line react/no-did-mount-set-state
-	      this.setState({
-	        mounted: true
-	      });
-	      this.updateIndicatorState(this.props);
-	      this.updateScrollButtonState();
-	
-	      if (this.props.action) {
-	        this.props.action({
-	          updateIndicator: this.handleResize
-	        });
-	      }
-	    }
-	  }, {
-	    key: "componentDidUpdate",
-	    value: function componentDidUpdate(prevProps, prevState) {
-	      this.updateScrollButtonState(); // The index might have changed at the same time.
-	      // We need to check again the right indicator position.
-	
-	      this.updateIndicatorState(this.props);
-	
-	      if (this.state.indicatorStyle !== prevState.indicatorStyle) {
-	        this.scrollSelectedIntoView();
-	      }
-	    }
-	  }, {
-	    key: "componentWillUnmount",
-	    value: function componentWillUnmount() {
-	      this.handleResize.clear();
-	      this.handleTabsScroll.clear();
-	    }
-	  }, {
-	    key: "updateIndicatorState",
-	    value: function updateIndicatorState(props) {
-	      var theme = props.theme,
-	          value = props.value;
-	
-	      var _getTabsMeta = this.getTabsMeta(value, theme.direction),
-	          tabsMeta = _getTabsMeta.tabsMeta,
-	          tabMeta = _getTabsMeta.tabMeta;
-	
-	      var left = 0;
-	
-	      if (tabMeta && tabsMeta) {
-	        var correction = theme.direction === 'rtl' ? tabsMeta.scrollLeftNormalized + tabsMeta.clientWidth - tabsMeta.scrollWidth : tabsMeta.scrollLeft;
-	        left = tabMeta.left - tabsMeta.left + correction;
-	      }
-	
-	      var indicatorStyle = {
-	        left: left,
-	        // May be wrong until the font is loaded.
-	        width: tabMeta ? tabMeta.width : 0
-	      };
-	
-	      if ((indicatorStyle.left !== this.state.indicatorStyle.left || indicatorStyle.width !== this.state.indicatorStyle.width) && !isNaN(indicatorStyle.left) && !isNaN(indicatorStyle.width)) {
-	        this.setState({
-	          indicatorStyle: indicatorStyle
-	        });
-	      }
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      var _classNames3,
-	          _this2 = this;
-	
-	      var _props = this.props,
-	          action = _props.action,
-	          centered = _props.centered,
-	          childrenProp = _props.children,
-	          classes = _props.classes,
-	          classNameProp = _props.className,
-	          Component = _props.component,
-	          fullWidth = _props.fullWidth,
-	          indicatorColor = _props.indicatorColor,
-	          onChange = _props.onChange,
-	          scrollable = _props.scrollable,
-	          ScrollButtonComponent = _props.ScrollButtonComponent,
-	          scrollButtons = _props.scrollButtons,
-	          _props$TabIndicatorPr = _props.TabIndicatorProps,
-	          TabIndicatorProps = _props$TabIndicatorPr === void 0 ? {} : _props$TabIndicatorPr,
-	          textColor = _props.textColor,
-	          theme = _props.theme,
-	          value = _props.value,
-	          other = (0, _objectWithoutProperties2.default)(_props, ["action", "centered", "children", "classes", "className", "component", "fullWidth", "indicatorColor", "onChange", "scrollable", "ScrollButtonComponent", "scrollButtons", "TabIndicatorProps", "textColor", "theme", "value"]);
-	      process.env.NODE_ENV !== "production" ? (0, _warning.default)(!centered || !scrollable, 'Material-UI: you can not use the `centered={true}` and `scrollable={true}` properties ' + 'at the same time on a `Tabs` component.') : void 0;
-	      var className = (0, _classnames.default)(classes.root, classNameProp);
-	      var scrollerClassName = (0, _classnames.default)(classes.scroller, (_classNames3 = {}, (0, _defineProperty2.default)(_classNames3, classes.fixed, !scrollable), (0, _defineProperty2.default)(_classNames3, classes.scrollable, scrollable), _classNames3));
-	      var flexContainerClassName = (0, _classnames.default)(classes.flexContainer, (0, _defineProperty2.default)({}, classes.centered, centered && !scrollable));
-	
-	      var indicator = _react.default.createElement(_TabIndicator.default, (0, _extends2.default)({
-	        className: classes.indicator,
-	        color: indicatorColor
-	      }, TabIndicatorProps, {
-	        style: (0, _objectSpread2.default)({}, this.state.indicatorStyle, TabIndicatorProps.style)
-	      }));
-	
-	      this.valueToIndex = new Map();
-	      var childIndex = 0;
-	
-	      var children = _react.default.Children.map(childrenProp, function (child) {
-	        if (!_react.default.isValidElement(child)) {
-	          return null;
-	        }
-	
-	        var childValue = child.props.value === undefined ? childIndex : child.props.value;
-	
-	        _this2.valueToIndex.set(childValue, childIndex);
-	
-	        var selected = childValue === value;
-	        childIndex += 1;
-	        return _react.default.cloneElement(child, {
-	          fullWidth: fullWidth,
-	          indicator: selected && !_this2.state.mounted && indicator,
-	          selected: selected,
-	          onChange: onChange,
-	          textColor: textColor,
-	          value: childValue
-	        });
-	      });
-	
-	      var conditionalElements = this.getConditionalElements();
-	      return _react.default.createElement(Component, (0, _extends2.default)({
-	        className: className
-	      }, other), _react.default.createElement(_reactEventListener.default, {
-	        target: "window",
-	        onResize: this.handleResize
-	      }), conditionalElements.scrollbarSizeListener, _react.default.createElement("div", {
-	        className: classes.flexContainer
-	      }, conditionalElements.scrollButtonLeft, _react.default.createElement("div", {
-	        className: scrollerClassName,
-	        style: this.state.scrollerStyle,
-	        ref: function ref(node) {
-	          _this2.tabs = node;
-	        },
-	        role: "tablist",
-	        onScroll: this.handleTabsScroll
-	      }, _react.default.createElement("div", {
-	        className: flexContainerClassName
-	      }, children), this.state.mounted && indicator), conditionalElements.scrollButtonRight));
-	    }
-	  }]);
-	  return Tabs;
-	}(_react.default.Component);
-	
-	Tabs.propTypes = process.env.NODE_ENV !== "production" ? {
-	  /**
-	   * Callback fired when the component mounts.
-	   * This is useful when you want to trigger an action programmatically.
-	   * It currently only supports `updateIndicator()` action.
-	   *
-	   * @param {object} actions This object contains all possible actions
-	   * that can be triggered programmatically.
-	   */
-	  action: _propTypes.default.func,
-	
-	  /**
-	   * If `true`, the tabs will be centered.
-	   * This property is intended for large views.
-	   */
-	  centered: _propTypes.default.bool,
-	
-	  /**
-	   * The content of the component.
-	   */
-	  children: _propTypes.default.node,
-	
-	  /**
-	   * Override or extend the styles applied to the component.
-	   * See [CSS API](#css-api) below for more details.
-	   */
-	  classes: _propTypes.default.object.isRequired,
-	
-	  /**
-	   * @ignore
-	   */
-	  className: _propTypes.default.string,
-	
-	  /**
-	   * The component used for the root node.
-	   * Either a string to use a DOM element or a component.
-	   */
-	  component: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-	
-	  /**
-	   * If `true`, the tabs will grow to use all the available space.
-	   * This property is intended for small views, like on mobile.
-	   */
-	  fullWidth: _propTypes.default.bool,
-	
-	  /**
-	   * Determines the color of the indicator.
-	   */
-	  indicatorColor: _propTypes.default.oneOf(['secondary', 'primary']),
-	
-	  /**
-	   * Callback fired when the value changes.
-	   *
-	   * @param {object} event The event source of the callback
-	   * @param {number} value We default to the index of the child
-	   */
-	  onChange: _propTypes.default.func,
-	
-	  /**
-	   * True invokes scrolling properties and allow for horizontally scrolling
-	   * (or swiping) the tab bar.
-	   */
-	  scrollable: _propTypes.default.bool,
-	
-	  /**
-	   * The component used to render the scroll buttons.
-	   */
-	  ScrollButtonComponent: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.func, _propTypes.default.object]),
-	
-	  /**
-	   * Determine behavior of scroll buttons when tabs are set to scroll
-	   * `auto` will only present them on medium and larger viewports
-	   * `on` will always present them
-	   * `off` will never present them
-	   */
-	  scrollButtons: _propTypes.default.oneOf(['auto', 'on', 'off']),
-	
-	  /**
-	   * Properties applied to the `TabIndicator` element.
-	   */
-	  TabIndicatorProps: _propTypes.default.object,
-	
-	  /**
-	   * Determines the color of the `Tab`.
-	   */
-	  textColor: _propTypes.default.oneOf(['secondary', 'primary', 'inherit']),
-	
-	  /**
-	   * @ignore
-	   */
-	  theme: _propTypes.default.object.isRequired,
-	
-	  /**
-	   * The value of the currently selected `Tab`.
-	   * If you don't want any selected `Tab`, you can set this property to `false`.
-	   */
-	  value: _propTypes.default.any
-	} : {};
-	Tabs.defaultProps = {
-	  centered: false,
-	  component: 'div',
-	  fullWidth: false,
-	  indicatorColor: 'secondary',
-	  scrollable: false,
-	  ScrollButtonComponent: _TabScrollButton.default,
-	  scrollButtons: 'auto',
-	  textColor: 'inherit'
-	};
-	
-	var _default = (0, _withStyles.default)(styles, {
-	  name: 'MuiTabs',
-	  withTheme: true
-	})(Tabs);
-	
-	exports.default = _default;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
-
-/***/ },
+/* 407 */,
+/* 408 */,
 /* 409 */
 /*!*************************************************************************************!*\
   !*** ./~/@material-ui/core/~/react-event-listener/dist/react-event-listener.cjs.js ***!
@@ -52514,596 +51930,14 @@
 
 
 /***/ },
-/* 411 */
-/*!*********************************************!*\
-  !*** ./~/normalize-scroll-left/lib/main.js ***!
-  \*********************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	Object.defineProperty(exports, "__esModule", { value: true });
-	// Based on https://github.com/react-bootstrap/dom-helpers/blob/master/src/util/inDOM.js
-	var inDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-	var cachedType;
-	function _setScrollType(type) {
-	    cachedType = type;
-	}
-	exports._setScrollType = _setScrollType;
-	// Based on the jquery plugin https://github.com/othree/jquery.rtl-scroll-type
-	function detectScrollType() {
-	    if (cachedType) {
-	        return cachedType;
-	    }
-	    if (!inDOM || !window.document.body) {
-	        return 'indeterminate';
-	    }
-	    var dummy = window.document.createElement('div');
-	    dummy.appendChild(document.createTextNode('ABCD'));
-	    dummy.dir = 'rtl';
-	    dummy.style.fontSize = '14px';
-	    dummy.style.width = '4px';
-	    dummy.style.height = '1px';
-	    dummy.style.position = 'absolute';
-	    dummy.style.top = '-1000px';
-	    dummy.style.overflow = 'scroll';
-	    document.body.appendChild(dummy);
-	    cachedType = 'reverse';
-	    if (dummy.scrollLeft > 0) {
-	        cachedType = 'default';
-	    }
-	    else {
-	        dummy.scrollLeft = 1;
-	        if (dummy.scrollLeft === 0) {
-	            cachedType = 'negative';
-	        }
-	    }
-	    document.body.removeChild(dummy);
-	    return cachedType;
-	}
-	exports.detectScrollType = detectScrollType;
-	// Based on https://stackoverflow.com/a/24394376
-	function getNormalizedScrollLeft(element, direction) {
-	    var scrollLeft = element.scrollLeft;
-	    // Perform the calculations only when direction is rtl to avoid messing up the ltr bahavior
-	    if (direction !== 'rtl') {
-	        return scrollLeft;
-	    }
-	    var type = detectScrollType();
-	    if (type === 'indeterminate') {
-	        return Number.NaN;
-	    }
-	    switch (type) {
-	        case 'negative':
-	            return element.scrollWidth - element.clientWidth + scrollLeft;
-	        case 'reverse':
-	            return element.scrollWidth - element.clientWidth - scrollLeft;
-	    }
-	    return scrollLeft;
-	}
-	exports.getNormalizedScrollLeft = getNormalizedScrollLeft;
-	function setNormalizedScrollLeft(element, scrollLeft, direction) {
-	    // Perform the calculations only when direction is rtl to avoid messing up the ltr bahavior
-	    if (direction !== 'rtl') {
-	        element.scrollLeft = scrollLeft;
-	        return;
-	    }
-	    var type = detectScrollType();
-	    if (type === 'indeterminate') {
-	        return;
-	    }
-	    switch (type) {
-	        case 'negative':
-	            element.scrollLeft = element.clientWidth - element.scrollWidth + scrollLeft;
-	            break;
-	        case 'reverse':
-	            element.scrollLeft = element.scrollWidth - element.clientWidth - scrollLeft;
-	            break;
-	        default:
-	            element.scrollLeft = scrollLeft;
-	            break;
-	    }
-	}
-	exports.setNormalizedScrollLeft = setNormalizedScrollLeft;
-
-
-/***/ },
-/* 412 */
-/*!***************************!*\
-  !*** ./~/scroll/index.js ***!
-  \***************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	var raf = __webpack_require__(/*! rafl */ 413)
-	var E_NOSCROLL = new Error('Element already at target scroll position')
-	var E_CANCELLED = new Error('Scroll cancelled')
-	var min = Math.min
-	
-	module.exports = {
-	  left: make('scrollLeft'),
-	  top: make('scrollTop')
-	}
-	
-	function make (prop) {
-	  return function scroll (el, to, opts, cb) {
-	    opts = opts || {}
-	
-	    if (typeof opts == 'function') cb = opts, opts = {}
-	    if (typeof cb != 'function') cb = noop
-	
-	    var start = +new Date
-	    var from = el[prop]
-	    var ease = opts.ease || inOutSine
-	    var duration = !isNaN(opts.duration) ? +opts.duration : 350
-	    var cancelled = false
-	
-	    return from === to ?
-	      cb(E_NOSCROLL, el[prop]) :
-	      raf(animate), cancel
-	
-	    function cancel () {
-	      cancelled = true
-	    }
-	
-	    function animate (timestamp) {
-	      if (cancelled) return cb(E_CANCELLED, el[prop])
-	
-	      var now = +new Date
-	      var time = min(1, ((now - start) / duration))
-	      var eased = ease(time)
-	
-	      el[prop] = (eased * (to - from)) + from
-	
-	      time < 1 ? raf(animate) : raf(function () {
-	        cb(null, el[prop])
-	      })
-	    }
-	  }
-	}
-	
-	function inOutSine (n) {
-	  return 0.5 * (1 - Math.cos(Math.PI * n))
-	}
-	
-	function noop () {}
-
-
-/***/ },
-/* 413 */
-/*!*************************!*\
-  !*** ./~/rafl/index.js ***!
-  \*************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	var global = __webpack_require__(/*! global */ 414)
-	
-	/**
-	 * `requestAnimationFrame()`
-	 */
-	
-	var request = global.requestAnimationFrame
-	  || global.webkitRequestAnimationFrame
-	  || global.mozRequestAnimationFrame
-	  || fallback
-	
-	var prev = +new Date
-	function fallback (fn) {
-	  var curr = +new Date
-	  var ms = Math.max(0, 16 - (curr - prev))
-	  var req = setTimeout(fn, ms)
-	  return prev = curr, req
-	}
-	
-	/**
-	 * `cancelAnimationFrame()`
-	 */
-	
-	var cancel = global.cancelAnimationFrame
-	  || global.webkitCancelAnimationFrame
-	  || global.mozCancelAnimationFrame
-	  || clearTimeout
-	
-	if (Function.prototype.bind) {
-	  request = request.bind(global)
-	  cancel = cancel.bind(global)
-	}
-	
-	exports = module.exports = request
-	exports.cancel = cancel
-
-
-/***/ },
-/* 414 */
-/*!****************************!*\
-  !*** ./~/global/window.js ***!
-  \****************************/
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {var win;
-	
-	if (typeof window !== "undefined") {
-	    win = window;
-	} else if (typeof global !== "undefined") {
-	    win = global;
-	} else if (typeof self !== "undefined"){
-	    win = self;
-	} else {
-	    win = {};
-	}
-	
-	module.exports = win;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 415 */
-/*!***************************************************!*\
-  !*** ./~/@material-ui/core/Tabs/ScrollbarSize.js ***!
-  \***************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = void 0;
-	
-	var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/classCallCheck */ 155));
-	
-	var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/createClass */ 156));
-	
-	var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/possibleConstructorReturn */ 157));
-	
-	var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/inherits */ 160));
-	
-	var _react = _interopRequireDefault(__webpack_require__(/*! react */ 1));
-	
-	var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ 28));
-	
-	var _reactEventListener = _interopRequireDefault(__webpack_require__(/*! react-event-listener */ 409));
-	
-	var _debounce = _interopRequireDefault(__webpack_require__(/*! debounce */ 410));
-	
-	// < 1kb payload overhead when lodash/debounce is > 3kb.
-	var styles = {
-	  width: '100px',
-	  height: '100px',
-	  position: 'absolute',
-	  top: '-10000px',
-	  overflow: 'scroll',
-	  msOverflowStyle: 'scrollbar'
-	};
-	/**
-	 * @ignore - internal component.
-	 * The component is originates from https://github.com/STORIS/react-scrollbar-size.
-	 * It has been moved into the core in order to minimize the bundle size.
-	 */
-	
-	var ScrollbarSize =
-	/*#__PURE__*/
-	function (_React$Component) {
-	  (0, _inherits2.default)(ScrollbarSize, _React$Component);
-	
-	  function ScrollbarSize() {
-	    var _ref;
-	
-	    var _temp, _this;
-	
-	    (0, _classCallCheck2.default)(this, ScrollbarSize);
-	
-	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-	
-	    return (0, _possibleConstructorReturn2.default)(_this, (_temp = _this = (0, _possibleConstructorReturn2.default)(this, (_ref = ScrollbarSize.__proto__ || Object.getPrototypeOf(ScrollbarSize)).call.apply(_ref, [this].concat(args))), _this.handleResize = (0, _debounce.default)(function () {
-	      var onChange = _this.props.onChange;
-	      var prevHeight = _this.scrollbarHeight;
-	      var prevWidth = _this.scrollbarWidth;
-	
-	      _this.setMeasurements();
-	
-	      if (prevHeight !== _this.scrollbarHeight || prevWidth !== _this.scrollbarWidth) {
-	        onChange({
-	          scrollbarHeight: _this.scrollbarHeight,
-	          scrollbarWidth: _this.scrollbarWidth
-	        });
-	      }
-	    }, 166), _this.setMeasurements = function () {
-	      if (!_this.node) {
-	        return;
-	      }
-	
-	      _this.scrollbarHeight = _this.node.offsetHeight - _this.node.clientHeight;
-	      _this.scrollbarWidth = _this.node.offsetWidth - _this.node.clientWidth;
-	    }, _temp));
-	  }
-	
-	  (0, _createClass2.default)(ScrollbarSize, [{
-	    key: "componentDidMount",
-	    // Corresponds to 10 frames at 60 Hz.
-	    value: function componentDidMount() {
-	      this.setMeasurements();
-	      this.props.onLoad({
-	        scrollbarHeight: this.scrollbarHeight,
-	        scrollbarWidth: this.scrollbarWidth
-	      });
-	    }
-	  }, {
-	    key: "componentWillUnmount",
-	    value: function componentWillUnmount() {
-	      this.handleResize.clear();
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      var _this2 = this;
-	
-	      var onChange = this.props.onChange;
-	      return _react.default.createElement("div", null, onChange ? _react.default.createElement(_reactEventListener.default, {
-	        target: "window",
-	        onResize: this.handleResize
-	      }) : null, _react.default.createElement("div", {
-	        style: styles,
-	        ref: function ref(node) {
-	          _this2.node = node;
-	        }
-	      }));
-	    }
-	  }]);
-	  return ScrollbarSize;
-	}(_react.default.Component);
-	
-	ScrollbarSize.propTypes = process.env.NODE_ENV !== "production" ? {
-	  onChange: _propTypes.default.func.isRequired,
-	  onLoad: _propTypes.default.func.isRequired
-	} : {};
-	var _default = ScrollbarSize;
-	exports.default = _default;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
-
-/***/ },
-/* 416 */
-/*!**************************************************!*\
-  !*** ./~/@material-ui/core/Tabs/TabIndicator.js ***!
-  \**************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = exports.styles = void 0;
-	
-	var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/extends */ 167));
-	
-	var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/objectWithoutProperties */ 87));
-	
-	var _react = _interopRequireDefault(__webpack_require__(/*! react */ 1));
-	
-	var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ 28));
-	
-	var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ 371));
-	
-	var _withStyles = _interopRequireDefault(__webpack_require__(/*! ../styles/withStyles */ 166));
-	
-	var _helpers = __webpack_require__(/*! ../utils/helpers */ 372);
-	
-	var styles = function styles(theme) {
-	  return {
-	    root: {
-	      position: 'absolute',
-	      height: 2,
-	      bottom: 0,
-	      width: '100%',
-	      transition: theme.transitions.create(),
-	      willChange: 'left, width'
-	    },
-	    colorPrimary: {
-	      backgroundColor: theme.palette.primary.main
-	    },
-	    colorSecondary: {
-	      backgroundColor: theme.palette.secondary.main
-	    }
-	  };
-	};
-	/**
-	 * @ignore - internal component.
-	 */
-	
-	
-	exports.styles = styles;
-	
-	function TabIndicator(props) {
-	  var classes = props.classes,
-	      className = props.className,
-	      color = props.color,
-	      other = (0, _objectWithoutProperties2.default)(props, ["classes", "className", "color"]);
-	  return _react.default.createElement("span", (0, _extends2.default)({
-	    className: (0, _classnames.default)(classes.root, classes["color".concat((0, _helpers.capitalize)(color))], className)
-	  }, other));
-	}
-	
-	TabIndicator.propTypes = process.env.NODE_ENV !== "production" ? {
-	  /**
-	   * Override or extend the styles applied to the component.
-	   * See [CSS API](#css-api) below for more details.
-	   */
-	  classes: _propTypes.default.object.isRequired,
-	
-	  /**
-	   * @ignore
-	   */
-	  className: _propTypes.default.string,
-	
-	  /**
-	   * @ignore
-	   * The color of the tab indicator.
-	   */
-	  color: _propTypes.default.oneOf(['primary', 'secondary'])
-	} : {};
-	
-	var _default = (0, _withStyles.default)(styles)(TabIndicator);
-	
-	exports.default = _default;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
-
-/***/ },
-/* 417 */
-/*!*****************************************************!*\
-  !*** ./~/@material-ui/core/Tabs/TabScrollButton.js ***!
-  \*****************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = exports.styles = void 0;
-	
-	var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/extends */ 167));
-	
-	var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/builtin/objectWithoutProperties */ 87));
-	
-	var _react = _interopRequireDefault(__webpack_require__(/*! react */ 1));
-	
-	var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ 28));
-	
-	var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ 371));
-	
-	var _KeyboardArrowLeft = _interopRequireDefault(__webpack_require__(/*! ../internal/svg-icons/KeyboardArrowLeft */ 418));
-	
-	var _KeyboardArrowRight = _interopRequireDefault(__webpack_require__(/*! ../internal/svg-icons/KeyboardArrowRight */ 426));
-	
-	var _withStyles = _interopRequireDefault(__webpack_require__(/*! ../styles/withStyles */ 166));
-	
-	var _ButtonBase = _interopRequireDefault(__webpack_require__(/*! ../ButtonBase */ 375));
-	
-	var styles = function styles(theme) {
-	  return {
-	    root: {
-	      color: 'inherit',
-	      flex: "0 0 ".concat(theme.spacing.unit * 7, "px")
-	    }
-	  };
-	};
-	/**
-	 * @ignore - internal component.
-	 */
-	
-	
-	exports.styles = styles;
-	
-	var _ref = _react.default.createElement(_KeyboardArrowLeft.default, null);
-	
-	var _ref2 = _react.default.createElement(_KeyboardArrowRight.default, null);
-	
-	function TabScrollButton(props) {
-	  var classes = props.classes,
-	      classNameProp = props.className,
-	      direction = props.direction,
-	      onClick = props.onClick,
-	      visible = props.visible,
-	      other = (0, _objectWithoutProperties2.default)(props, ["classes", "className", "direction", "onClick", "visible"]);
-	  var className = (0, _classnames.default)(classes.root, classNameProp);
-	
-	  if (!visible) {
-	    return _react.default.createElement("div", {
-	      className: className
-	    });
-	  }
-	
-	  return _react.default.createElement(_ButtonBase.default, (0, _extends2.default)({
-	    className: className,
-	    onClick: onClick,
-	    tabIndex: -1
-	  }, other), direction === 'left' ? _ref : _ref2);
-	}
-	
-	TabScrollButton.propTypes = process.env.NODE_ENV !== "production" ? {
-	  /**
-	   * Override or extend the styles applied to the component.
-	   * See [CSS API](#css-api) below for more details.
-	   */
-	  classes: _propTypes.default.object.isRequired,
-	
-	  /**
-	   * @ignore
-	   */
-	  className: _propTypes.default.string,
-	
-	  /**
-	   * Which direction should the button indicate?
-	   */
-	  direction: _propTypes.default.oneOf(['left', 'right']),
-	
-	  /**
-	   * Callback to execute for button press.
-	   */
-	  onClick: _propTypes.default.func,
-	
-	  /**
-	   * Should the button be present or just consume space.
-	   */
-	  visible: _propTypes.default.bool
-	} : {};
-	TabScrollButton.defaultProps = {
-	  visible: true
-	};
-	
-	var _default = (0, _withStyles.default)(styles, {
-	  name: 'MuiTabScrollButton'
-	})(TabScrollButton);
-	
-	exports.default = _default;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
-
-/***/ },
-/* 418 */
-/*!*********************************************************************!*\
-  !*** ./~/@material-ui/core/internal/svg-icons/KeyboardArrowLeft.js ***!
-  \*********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = void 0;
-	
-	var _react = _interopRequireDefault(__webpack_require__(/*! react */ 1));
-	
-	var _pure = _interopRequireDefault(__webpack_require__(/*! recompose/pure */ 419));
-	
-	var _SvgIcon = _interopRequireDefault(__webpack_require__(/*! ../../SvgIcon */ 424));
-	
-	var _ref = _react.default.createElement("path", {
-	  d: "M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
-	});
-	
-	/**
-	 * @ignore - internal component.
-	 */
-	var KeyboardArrowLeft = function KeyboardArrowLeft(props) {
-	  return _react.default.createElement(_SvgIcon.default, props, _ref);
-	};
-	
-	KeyboardArrowLeft = (0, _pure.default)(KeyboardArrowLeft);
-	KeyboardArrowLeft.muiName = 'SvgIcon';
-	var _default = KeyboardArrowLeft;
-	exports.default = _default;
-
-/***/ },
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
 /* 419 */
 /*!*************************************************!*\
   !*** ./~/@material-ui/core/~/recompose/pure.js ***!
@@ -53453,44 +52287,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 2)))
 
 /***/ },
-/* 426 */
-/*!**********************************************************************!*\
-  !*** ./~/@material-ui/core/internal/svg-icons/KeyboardArrowRight.js ***!
-  \**********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/builtin/interopRequireDefault */ 81);
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = void 0;
-	
-	var _react = _interopRequireDefault(__webpack_require__(/*! react */ 1));
-	
-	var _pure = _interopRequireDefault(__webpack_require__(/*! recompose/pure */ 419));
-	
-	var _SvgIcon = _interopRequireDefault(__webpack_require__(/*! ../../SvgIcon */ 424));
-	
-	var _ref = _react.default.createElement("path", {
-	  d: "M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
-	});
-	
-	/**
-	 * @ignore - internal component.
-	 */
-	var KeyboardArrowRight = function KeyboardArrowRight(props) {
-	  return _react.default.createElement(_SvgIcon.default, props, _ref);
-	};
-	
-	KeyboardArrowRight = (0, _pure.default)(KeyboardArrowRight);
-	KeyboardArrowRight.muiName = 'SvgIcon';
-	var _default = KeyboardArrowRight;
-	exports.default = _default;
-
-/***/ },
+/* 426 */,
 /* 427 */
 /*!********************************************!*\
   !*** ./client/src/components/HomePage.jsx ***!
@@ -62204,24 +61001,47 @@
 	        _styles.MuiThemeProvider,
 	        { theme: theme },
 	        _react2.default.createElement(
-	          _Paper2.default,
-	          { style: {
-	              marginLeft: 'auto',
-	              marginRight: 'auto',
-	              marginTop: '60px',
-	              marginBottom: '60px',
-	              height: '700px', width: '700px',
-	              display: 'flex',
-	              alignItems: 'flexStart',
-	              flexWrap: 'wrap'
-	            }, zDepth: 1 },
-	          _react2.default.createElement(_DiscPlayer2.default, null),
+	          'div',
+	          { className: 'disco' },
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
-	            'div',
-	            { style: { width: '20%', height: '80%' } },
-	            _react2.default.createElement(_TurnTableNav2.default, null)
-	          ),
-	          _react2.default.createElement('div', { style: { width: '100%', height: '20%' } })
+	            _Paper2.default,
+	            {
+	              style: {
+	                marginLeft: 'auto',
+	                marginRight: 'auto',
+	                height: '400px', width: '400px',
+	                display: 'flex',
+	                alignItems: 'flexStart',
+	                flexWrap: 'wrap'
+	              }, zDepth: 1 },
+	            _react2.default.createElement(_DiscPlayer2.default, null),
+	            _react2.default.createElement(
+	              'div',
+	              { style: { width: '20%', height: '80%' } },
+	              _react2.default.createElement(_TurnTableNav2.default, null)
+	            ),
+	            _react2.default.createElement('div', { style: { width: '100%', height: '20%' } })
+	          )
 	        )
 	      );
 	    }
@@ -62551,19 +61371,19 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var TurnTable = function (_React$Component) {
-	  _inherits(TurnTable, _React$Component);
+	var DiscPlayer = function (_React$Component) {
+	  _inherits(DiscPlayer, _React$Component);
 	
-	  function TurnTable(props) {
-	    _classCallCheck(this, TurnTable);
+	  function DiscPlayer(props) {
+	    _classCallCheck(this, DiscPlayer);
 	
-	    var _this = _possibleConstructorReturn(this, (TurnTable.__proto__ || Object.getPrototypeOf(TurnTable)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (DiscPlayer.__proto__ || Object.getPrototypeOf(DiscPlayer)).call(this, props));
 	
 	    _this.state = {};
 	    return _this;
 	  }
 	
-	  _createClass(TurnTable, [{
+	  _createClass(DiscPlayer, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -62572,7 +61392,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          {
-	            style: { width: '80%',
+	            style: { width: '66%',
 	              height: '70%',
 	              display: 'flex',
 	              alignItems: 'flexStart',
@@ -62616,10 +61436,10 @@
 	    }
 	  }]);
 	
-	  return TurnTable;
+	  return DiscPlayer;
 	}(_react2.default.Component);
 	
-	exports.default = TurnTable;
+	exports.default = DiscPlayer;
 
 /***/ },
 /* 507 */

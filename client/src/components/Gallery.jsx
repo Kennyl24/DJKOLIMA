@@ -23,7 +23,10 @@ class Gallery extends React.Component {
   render () {
     return (
       <MuiThemeProvider theme={theme}>
+        <LeadBar/>
+        <div style={{position:'relative', top:'70px'}}>
         <GalleryTabs/>
+        </div>
         <MusicPlayer/>
       </MuiThemeProvider>
     );

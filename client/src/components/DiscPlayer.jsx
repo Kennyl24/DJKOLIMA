@@ -10,7 +10,7 @@ import AvPause from 'material-ui/svg-icons/av/pause'
 import VolumeSlide from './VolumeSlide.jsx';
 
 
-class TurnTable extends React.Component {
+class DiscPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,8 +20,8 @@ class TurnTable extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-      <div 
-      style={{width:'80%', 
+      <div
+      style={{width:'66%', 
       height:'70%',
       display: 'flex',
       alignItems: 'flexStart',
@@ -44,10 +44,10 @@ class TurnTable extends React.Component {
       VOLUME
       <VolumeSlide/>
       </div>
-      </div>   
+      </div> 
       </MuiThemeProvider>
     );
   }
 }
 
-export default TurnTable;
+export default DiscPlayer;

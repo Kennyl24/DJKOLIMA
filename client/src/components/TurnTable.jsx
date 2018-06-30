@@ -35,12 +35,31 @@ class TurnTable extends React.Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-      <Paper style={{
+      <div className="disco">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br /><br />
+      <br />
+      <br />
+      <br />
+      <Paper 
+      style={{
       marginLeft: 'auto',
       marginRight: 'auto',
-      marginTop:'60px',
-      marginBottom:'60px',
-      height:'700px', width:'700px',
+      height:'400px', width:'400px',
       display: 'flex',
       alignItems: 'flexStart',
       flexWrap: 'wrap',
@@ -52,6 +71,7 @@ class TurnTable extends React.Component {
       <div style={{width:'100%', height:'20%'}}>
       </div>
       </Paper>
+      </div>
       </MuiThemeProvider>
     );
   }
