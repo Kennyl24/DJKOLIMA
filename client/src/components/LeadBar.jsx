@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
+import { HashLink } from "react-router-hash-link";
 
 class LeadBar extends React.Component {
     constructor(props) {
@@ -11,11 +13,10 @@ class LeadBar extends React.Component {
   render(){
     const navButtons = (
       <div>
-        <FlatButton label="Home" style={{color:'white'}}/>
-        <FlatButton label="Weddings" style={{color:'white'}} />
-        <FlatButton label="Quince's" style={{color:'white'}}/>
-        <FlatButton label="Other Events" style={{color:'white'}}/>
-        <FlatButton label="Bookings" style={{color:'white'}}/>
+        <Link to={{ pathname:'/' }}><FlatButton label="Home" style={{color:'white'}}></FlatButton></Link>
+        <Link to={{ pathname:'/gallery' }}><FlatButton label="Gallery" style={{color:'white'}} /></Link>
+        <Link to={{ pathname:'/videos' }}><FlatButton label="Videos" style={{color:'white'}}/></Link>
+        <HashLink to="/#Content"><FlatButton label="Bookings" style={{color:'white'}}/></HashLink>
       </div>
     );
     const leftButtons = (

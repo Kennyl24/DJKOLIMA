@@ -92,7 +92,7 @@ const tilesData = [
     title: 'Napa Valley Transmissions9',
   },
 ];
-class GalleryImages extends React.Component { 
+class VideoGallery extends React.Component { 
   constructor(props) {
     super(props);
     this.state = {
@@ -133,7 +133,7 @@ class GalleryImages extends React.Component {
     return (
       <MuiThemeProvider>
     <div style={styles.root}>
-    {this.state.biggerPics ? <GalleryModal currentImage={this.state.currentImage}/> : null}
+    {this.state.biggerPics ? <GalleryModal images={tilesData} currentImage={this.state.currentImage}/> : null}
     <GridList
       cols={3}
       cellHeight={300}
@@ -150,7 +150,7 @@ class GalleryImages extends React.Component {
           cols={tile.featured ? 3 : 1}
           rows={tile.featured ? 3 : 1}
         >
-          <img onClick={this.test} src={tile.img} onMouseOver={this.hovered} onMouseLeave={this.hovered} />
+        <iframe width="300" height="300" src="https://www.youtube.com/embed/f5I79eakR8E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </GridTile>
       ))}
     </GridList>
@@ -160,4 +160,4 @@ class GalleryImages extends React.Component {
 }
 }
 
-export default GalleryImages;
+export default VideoGallery;

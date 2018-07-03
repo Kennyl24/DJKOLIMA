@@ -6,6 +6,7 @@ import GalleryImages from './GalleryImages.jsx';
 import LeadBar from './LeadBar.jsx';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
+import VideoGallery from './VideoGallery.jsx';
 
 const styles = {
   headline: {
@@ -16,7 +17,7 @@ const styles = {
   },
 };
 
-class GalleryTabs extends React.Component { 
+class VideoTabs extends React.Component { 
   constructor(props) {
     super(props);
     this.state = {
@@ -26,10 +27,10 @@ class GalleryTabs extends React.Component {
     return (
 <MuiThemeProvider >
 <div style={{backgroundImage: 'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_NeNvOB8s6i7s-lsPJUMZBFZ9bRSVu40hMsp8VapelC2VIs6x)'}}>
-  <h1 className="neon-writing" style={{textAlign:'center', fontSize:'72px'}}>Gallery</h1>
+  <h1 className="neon-writing" style={{textAlign:'center', fontSize:'72px'}}>Videos</h1>
 <Tabs style={{position:'relative'}}>
 <Tab label="Quinces" style={{backgroundColor:'white'}} buttonStyle={{color:'black'}}>
-  <GalleryImages/>
+  <VideoGallery/>
 </Tab>
 <Tab label="Weddings" style={{backgroundColor:'white'}}
   buttonStyle={{color:'black'}}
@@ -54,4 +55,4 @@ style={{backgroundColor:'white'}} buttonStyle={{color:'black'}}
 )
   }
 }
-export default GalleryTabs;
+export default VideoTabs;

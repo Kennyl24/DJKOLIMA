@@ -25,18 +25,14 @@ class BottomNav extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
-      <Paper style={{backgroundColor:'white', marginTop:'-2%'}} zDepth={1}>
+      <Paper id="Content" style={{backgroundColor:'#F5F5F5', marginTop:'-2%'}} zDepth={1}>
       <br />
       <br />
       <h1 style={{textAlign:'center'}}>Getting in touch</h1>
-      <br />
-      <br />
+      <h1 style={{textAlign:'center'}}>Call me @ <span>4084428474</span></h1>
       <h2 style={{textAlign:'center'}}>
       Please reach out if you have any questions or if you would like to schedule an appoitment
       </h2>
-      <br />
-      <br />
-      <br />
       <br />
       <div style={{argin:'auto', display:'flex'}}>
       {/* <div style={{margin:'auto'}}>
@@ -51,17 +47,9 @@ class BottomNav extends React.Component {
       </IconButton>
       </div> */}
     <div style={{margin:'auto'}}>
-        <IconButton color="secondary" aria-label="Add an alarm">
-    <SocialIcon style={{ height: 200, width: 200 }} url="http://twitter.com/" />
-    </IconButton>
+    <a href="http://instagram.com" target="_blank"><img height="200px" width="200px"src="http://www.freelogovectors.net/wp-content/uploads/2016/12/Instagram_Icon.png"/></a>
     <br />
-    <IconButton color="secondary" aria-label="Add an alarm">
-    <SocialIcon style={{ height: 200, width: 200 }} url="http://facebook.com/" />
-    </IconButton>
-    <br />
-    <IconButton color="secondary" aria-label="Add an alarm">
-    <SocialIcon style={{ height: 200, width: 200 }}url="http://instagram.com/" />
-    </IconButton>
+    <a href="http://facebook.com" target="_blank"><img height="200px" width="200px"src="http://pluspng.com/img-png/png-facebook-logo-for-email-marketing-you-can-trust-1000.png"/></a>
     </div>
       <ContactForm style={{margin:'auto'}}/>
       </div>

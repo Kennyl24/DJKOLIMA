@@ -31,7 +31,7 @@ class HomePage extends React.Component {
         <DiscoBall/>
         {/* <TurnTable/> */}
         <FrontImages/>
-        <BottomNav/>
+        <BottomNav id="Content"/>
         <MusicPlayer/>
       </MuiThemeProvider>
     );

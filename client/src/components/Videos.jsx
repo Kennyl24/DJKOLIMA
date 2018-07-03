@@ -5,7 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import LeadBar from './LeadBar.jsx';
 import MusicPlayer from './MusicPlayer';
-import GalleryTabs from './GalleryTabs';
+import VideoTabs from './VideoTabs';
 
 const theme = createMuiTheme({
   palette: {
@@ -14,7 +14,7 @@ const theme = createMuiTheme({
   },
 });
 
-class Gallery extends React.Component {
+class Videos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +25,7 @@ class Gallery extends React.Component {
       <MuiThemeProvider theme={theme}>
         <LeadBar/>
         <div style={{position:'relative', top:'13px'}}>
-        <GalleryTabs/>
+        <VideoTabs/>
         </div>
         <MusicPlayer/>
       </MuiThemeProvider>
@@ -33,4 +33,4 @@ class Gallery extends React.Component {
   };
 }
 
-export default Gallery;
+export default Videos;
