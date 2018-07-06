@@ -10,8 +10,13 @@
 .disco{
   background-image: url(https://static2.bigstockphoto.com/8/6/1/large1500/168817034.jpg);
   min-width: 100%;
-  min-height: 100%;
-  margin-top: -0.5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  margin: 0; 
+  height: 100%; 
+  overflow: hidden
 }
 .main-image{
   height:100%;
@@ -47,11 +52,11 @@
     0 0 5px #fff,
     0 0 10px #fff,
     0 0 20px #fff,
-    0 0 40px rgb(0, 255, 102),
-    0 0 80px rgb(0, 255, 102),
-    0 0 90px rgb(0, 255, 102),
-    0 0 100px rgb(0, 255, 102),
-    0 0 150px rgb(0, 255, 102);
+    0 0 40px rgb(0, 51, 255),
+    0 0 80px rgb(0, 51, 255),
+    0 0 90px rgb(0, 51, 255),
+    0 0 100px rgb(0, 51, 255),
+    0 0 150px rgb(0, 51, 255);
 }
 .polaroid img {
   border: 10px solid #fff;
@@ -74,4 +79,104 @@
   bottom: 0px;
   font: 400 18px/1 'Kaushan Script', cursive;
   color: #888;
+}
+
+.speaker {
+  background-color: black;
+  height: 300px;
+  width: 150px;
+  position: absolute;
+  top: 250px;
+}
+
+@-webkit-keyframes rotateDiscoBall {
+  0% {-webkit-transform: rotateX(90deg) rotateZ(0deg) rotate(0deg); }
+  100% {-webkit-transform: rotateX(90deg) rotateZ(360deg) rotate(0deg); }
+}
+
+@keyframes rotateDiscoBall {
+  0% {transform: rotateX(90deg) rotateZ(0deg) rotate(0deg); }
+  100% {transform: rotateX(90deg) rotateZ(360deg) rotate(0deg); }
+}
+
+@-webkit-keyframes rotateDiscoBallMiddle {
+  0% {-webkit-transform: rotateX(90deg) rotateY(0deg) rotate(0deg); }
+  100% {-webkit-transform: rotateX(90deg) rotateY(-360deg) rotate(0deg); }
+}
+
+@keyframes rotateDiscoBallMiddle {
+  0% {transform: rotateX(90deg) rotateY(0deg) rotate(0deg); }
+  100% {transform: rotateX(90deg) rotateY(-360deg) rotate(0deg); }
+}
+
+@-webkit-keyframes reflect {
+  0% {-webkit-filter: brightness(60%);}
+  50% {-webkit-filter: brightness(120%);}  
+  100% {-webkit-filter: brightness(90%);}  
+}
+
+@keyframes reflect {
+  0% {opacity: 1;}
+  50% {opacity: 0.4;}  
+  100% {opacity: 1;}  
+}
+
+#discoBall {
+-webkit-transform-style: preserve-3d;
+transform-style: preserve-3d;
+width: 100px;
+height: 100px;
+position: absolute;
+top: 50px;
+left: 50%;
+margin-left: -50px;
+-webkit-animation: rotateDiscoBall 18s linear infinite;
+animation: rotateDiscoBall 18s linear infinite;
+}
+
+#discoBallLight {
+width: 100px;
+height: 100px;
+position: absolute;
+top: 50px;
+left: 50%;
+margin-left: -50px; 
+border-radius: 100%;
+background-color: white; 
+opacity: 0.2;
+-webkit-filter: blur(20px);
+}
+
+.square {
+-webkit-transform-style: preserve-3d;
+transform-style: preserve-3d;	
+position: absolute;
+top: 50px;
+left: 50px;
+width: 6px;
+height: 6px;
+position: absolute;
+transform: rotateX(90deg) rotateY(0deg) translateZ(0px);
+}
+
+#discoBallMiddle { 
+height: 100%;
+border-radius: 100%;
+background-color: #111;
+position: absolute;
+background: -webkit-linear-gradient(top, #111, #333);
+background: -moz-linear-gradient(top, #111, #333);
+background: linear-gradient(top, #111, #333);
+-webkit-animation: rotateDiscoBallMiddle 18s linear infinite;
+animation: rotateDiscoBallMiddle 18s linear infinite;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }

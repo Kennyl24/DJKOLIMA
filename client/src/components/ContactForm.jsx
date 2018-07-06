@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 import ReactDOM from 'react-dom';
 import FlatButton from 'material-ui/FlatButton';
@@ -6,6 +7,28 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { SocialIcon } from 'react-social-icons';
 import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+
+
+const eventTypes = [
+  {
+    value: 'Quince',
+    label: 'Quince',
+  },
+  {
+    value: 'Wedding',
+    label: 'Wedding',
+  },
+  {
+    value: 'Birthday',
+    label: 'Birthday',
+  },
+  {
+    value: 'Other Event',
+    label: 'Other Event',
+  },
+];
+
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +39,7 @@ class ContactForm extends React.Component {
       eventType:'', 
       eventDate:'', 
       message: '',
+      startDate: moment().format("YYYY-MM-DD"),
     }
     this.nameChange=this.nameChange.bind(this);
     this.emailChange=this.emailChange.bind(this);
@@ -23,7 +47,15 @@ class ContactForm extends React.Component {
     this.typeChange=this.typeChange.bind(this);
     this.dateChange=this.dateChange.bind(this);
     this.messageChange=this.messageChange.bind(this);
+    this.checkDates = this.checkDates.bind(this);
   };
+componentDidMount(){
+  this.checkDates();
+}
+checkDates(){
+  const m = moment().format("YYYY-MM-DD");
+  console.log(m)
+}
 nameChange(event, newValue){
   this.setState({
     name: newValue
@@ -42,54 +74,27 @@ numberChange(event, newValue){
   });
   console.log(this.state.phoneNumber);
 }
-typeChange(event, newValue){
+typeChange(event){
+  console.log(event.target.value);
   this.setState({
-    eventType: newValue
+    eventType: event.target.value
   });
-  console.log(this.state.eventType);
 }
-dateChange(event, newValue){
+dateChange(event){
   this.setState({
-    eventDate: newValue
+    eventDate: event.target.value
   });
   console.log(this.state.eventDate);
 }
-messageChange(event, newValue){
+messageChange(event){
+  console.log(event.target.value);
   this.setState({
-    message: newValue
+    message: event.target.value
   });
-  console.log(this.state.message);
 }
 render(){
   return (
-  <div style={{width:'40%', marginRight:'10%'}}>
-    {/* <TextField
-      hintText="Name"
-      onChange={this.nameChange}
-    /><br />
-    <TextField
-      hintText="Email"
-      onChange={this.emailChange}
-    /><br />
-    <TextField
-      hintText="Phone Number"
-      onChange={this.numberChange}
-    /><br />
-    <TextField
-      hintText="Type of Event"
-      onChange={this.typeChange}
-    /><br />
-    <TextField
-      hintText="Date of Event"
-      onChange={this.dateChange}
-    /><br />
-    <TextField
-      hintText="Message"
-      onChange={this.messageChange}
-      multiLine={true}
-      rows={2}
-      rowsMax={4}
-    /> */}
+  <div style={{width:'40%', marginLeft:'20%'}}>
     <TextField
           id="search"
           // label="Search field"
@@ -112,33 +117,39 @@ render(){
         <br />
          <TextField
           id="search"
-          // label="Search field"
           type="search"
           margin="normal"
-          placeholder="event type"
-          // required={true}
+          placeholder="email"
           fullWidth={true}
         />
         <br />
+        <form>
          <TextField
-          id="search"
-          // label="Search field"
-          type="search"
+          id="date"
+          label="event date"
           margin="normal"
-          placeholder="date of event"
-          // required={true}
+          type="date"
+          defaultValue={this.state.startDate}
           fullWidth={true}
-        />
+          />
+          </form>
         <br />
          <TextField
           id="search"
-          // label="Search field"
-          type="search"
+          select
+          label="Event Type"
+          value={this.state.eventType}
+          onChange={this.typeChange}
           margin="normal"
           placeholder="Placeholder"
-          // required={true}
           fullWidth={true}
-        />
+          >
+          {eventTypes.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
         <br />
          <TextField
           id="search"
@@ -146,12 +157,13 @@ render(){
           type="search"
           margin="normal"
           placeholder="message"
+          onChange={this.messageChange}
           multiline={true}
           required={true}
           fullWidth={true}
         />
     <br/>
-     <Button variant="raised" color="secondary">
+     <Button variant="raised" color="secondary" style={{position:'relative', marginTop:'20px'}}>
       Submit
     </Button>
     <br />

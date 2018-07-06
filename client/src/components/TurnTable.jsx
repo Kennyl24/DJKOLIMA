@@ -5,7 +5,8 @@ import FontIcon from 'material-ui/FontIcon';
 import {BottomNavigation, BottomNavigationItem} from '@material-ui/core/BottomNavigation';
 import Paper from '@material-ui/core/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
-
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import PlayArrow from 'material-ui/svg-icons/av/play-arrow'
 import AvPause from 'material-ui/svg-icons/av/pause'
 import VolumeSlide from './VolumeSlide.jsx';
@@ -13,7 +14,9 @@ import DiscPlayer from './DiscPlayer.jsx';
 import TurnTableNav from './TurnTableNav.jsx';
 import TurnTableSongs from './TurnTableSongs.jsx';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-// main app
+import DiscoBall from './DiscoBall.jsx';
+import SongPicker from './SongPicker.jsx';
+import Speakers from './Speakers.jsx';
 
 const theme = createMuiTheme({
   palette: {
@@ -36,27 +39,15 @@ class TurnTable extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
       <div className="disco">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br /><br />
-      <br />
-      <br />
-      <br />
+      <IconButton style={{position:'absolute', top:'10px', right:'30px'}}color="secondary" aria-label="choose song">
+        <Icon>clear</Icon>
+      </IconButton>
+      <DiscoBall/>
+      <Speakers/>
       <Paper 
       style={{
+        position:'relative',
+        top: '365px',
       marginLeft: 'auto',
       marginRight: 'auto',
       height:'400px', width:'400px',

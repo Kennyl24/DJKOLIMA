@@ -16,7 +16,7 @@ class LeadBar extends React.Component {
         <Link to={{ pathname:'/' }}><FlatButton label="Home" style={{color:'white'}}></FlatButton></Link>
         <Link to={{ pathname:'/gallery' }}><FlatButton label="Gallery" style={{color:'white'}} /></Link>
         <Link to={{ pathname:'/videos' }}><FlatButton label="Videos" style={{color:'white'}}/></Link>
-        <HashLink to="/#Content"><FlatButton label="Bookings" style={{color:'white'}}/></HashLink>
+        <HashLink to="/#Content"><FlatButton label="Contact" style={{color:'white'}}/></HashLink>
       </div>
     );
     const leftButtons = (

@@ -5,15 +5,24 @@ import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import TurnTable from './TurnTable.jsx';
 
 class MusicPlayer extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        showMusicPlayer: true
+        showMusicPlayer: true,
+        showDjFun: true,
       }
       this.hideMusicPlayer = this.hideMusicPlayer.bind(this);
+      this.showDjFun = this.showDjFun.bind(this);
   };
+  showDjFun(){
+    console.log('in dis');
+    this.setState({
+      showDjFun: !this.state.showDjFun
+    });
+  }
   hideMusicPlayer(){
     console.log('in this thang')
     this.setState({
@@ -49,7 +58,7 @@ class MusicPlayer extends React.Component {
     );
     return (
       <MuiThemeProvider>
-        {this.state.showMusicPlayer ? 
+        {this.state.showDjFun ? 
       <AppBar
         title='Current Song'
         style={{height:'8%', backgroundColor:'#DCDCDC', position:'fixed', bottom: '0'}}
@@ -57,11 +66,15 @@ class MusicPlayer extends React.Component {
         iconElementLeft={leftButtons}
         iconElementRight={navButtons}
         >
-      <IconButton color="secondary" aria-label="choose song">
+    <div style={{position:'absolute',top: '20%',
+    left: '50%'}}>
+      <IconButton onClick={this.showDjFun} color="secondary" aria-label="choose song">
         <Icon>keyboard_arrow_up</Icon>
       </IconButton>
+      Be the DJ!
+      </div>
         </AppBar>
-        : leftButtons}
+        : <TurnTable/>}
       </MuiThemeProvider>
     );
   }
