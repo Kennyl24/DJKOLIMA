@@ -34,7 +34,7 @@
 }
 .test {
   background-image: url(https://media.istockphoto.com/vectors/cork-background-cork-board-texture-vector-id517253083?k=6&m=517253083&s=612x612&w=0&h=WFUB-HZXDifn4XamFsGCZyBPRpoCRVw4PukqGdtyPLQ=);
-  margin-top: -0.5%;
+  margin-top: 5.5%;
   height: 720px;
   width:100%;
 }
@@ -172,11 +172,95 @@ animation: rotateDiscoBallMiddle 18s linear infinite;
 }
 
 .blink_me {
-  animation: blinker 1s linear infinite;
+  /* animation: blinker 2s linear infinite; */
+  color: rgb(12, 4, 4);
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(0, 51, 255),
+    0 0 80px rgb(0, 51, 255),
+    0 0 90px rgb(0, 51, 255),
+    0 0 100px rgb(0, 51, 255),
+    0 0 150px rgb(0, 51, 255);
+    /* font: 400 18px/1 "Kaushan Script"; */
+    font-size: 70px;
 }
 
 @keyframes blinker {
   50% {
     opacity: 0;
   }
+}
+.about {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 8%;
+  margin-bottom: 6%;
+}
+
+.about-image-header {
+  font-size:30px;
+  color: white;
+  z-index: 9999;
+  position: absolute;
+  width:100%;
+  top: 10px;
+  /* left: 30px; */
+  text-align: center;
+}
+.about-image-p {
+  font-size: 25px;
+  color: white;
+  margin-top: 200px;
+  margin-left: 3%;
+  box-sizing: content-box;
+  width: 90%;
+  position: absolute;
+  text-align: center;
+  bottom: 40px;
+  border: solid rgb(255, 255, 255) 1px;
+  padding: 2px;
+}
+
+
+.sun { 
+  position: relative;
+	top:0;
+	left:0;
+	/* margin: auto;   */
+	width:70px;
+	height:70px;
+	border-radius: 10%;	
+	background:white;
+	opacity:0.9;			
+	box-shadow: 0px 0px 40px 15px white;  
+}
+
+.ray_box {
+  position: absolute;
+  margin: auto;
+	top:0px;
+	left:0;
+	right:0;
+	bottom:0;	
+  width:70px;  
+  -webkit-animation: ray_anim 120s linear infinite;
+  animation: ray_anim 120s linear infinite;
+}
+.ray {  
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+    margin-left:10px;
+    border-radius:80% 80% 0 0;
+    position:absolute;
+    opacity:0.1;
+}
+
+.ray1 {    
+    height:170px;
+    width:30px;
+   -webkit-transform: rotate(180deg);
+    top:-175px;
+    left: 15px;
 }

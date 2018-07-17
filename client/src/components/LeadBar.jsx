@@ -9,14 +9,33 @@ import { HashLink } from "react-router-hash-link";
 class LeadBar extends React.Component {
     constructor(props) {
       super(props);
+      this.state = {
+        backgroundColor: 'transparent'
+      }
+      this.fireOnScroll = this.fireOnScroll.bind(this);
   };
+  fireOnScroll(e) {
+    console.log('yello!');
+      if (window.scrollY > 600) {
+        this.setState({ 
+          backgroundColor:'rgb(63, 6, 245)' 
+      });
+      }  else {
+        this.setState({ 
+          backgroundColor:'transparent' 
+      });
+      }
+  }
+  componentDidMount(){
+    window.addEventListener('scroll', this.fireOnScroll, true);
+  }
   render(){
     const navButtons = (
       <div>
-        <Link to={{ pathname:'/' }}><FlatButton label="Home" style={{color:'white'}}></FlatButton></Link>
-        <Link to={{ pathname:'/gallery' }}><FlatButton label="Gallery" style={{color:'white'}} /></Link>
-        <Link to={{ pathname:'/videos' }}><FlatButton label="Videos" style={{color:'white'}}/></Link>
-        <HashLink to="/#Content"><FlatButton label="Contact" style={{color:'white'}}/></HashLink>
+        <Link to={{ pathname:'/' }}><FlatButton label="Home" style={{color:'black'}}></FlatButton></Link>
+        <Link to={{ pathname:'/gallery' }}><FlatButton label="Gallery" style={{color:'black'}} /></Link>
+        <Link to={{ pathname:'/videos' }}><FlatButton label="Videos" style={{color:'black'}}/></Link>
+        <HashLink to="/#Content"><FlatButton label="Contact" style={{color:'black'}}/></HashLink>
       </div>
     );
     const leftButtons = (
@@ -27,9 +46,10 @@ class LeadBar extends React.Component {
     return (
       <MuiThemeProvider>
       <AppBar
+        id="myNav"
         title='DJ KOLIMA'
-        style={{backgroundColor:'#3f06f5', position:'fixed', top: '0'}}
-        titleStyle={{fontSize:'40px'}}
+        style={{backgroundColor: this.state.backgroundColor, maxWidth:'100%',position:'fixed', top: '0'}}
+        titleStyle={{fontSize:'40px', color:'black'}}
         iconElementLeft={leftButtons}
         iconElementRight={navButtons}
         >

@@ -26,24 +26,22 @@ class BottomNav extends React.Component {
     return (
       <MuiThemeProvider>
       <Paper id="Content" style={{backgroundColor:'#F5F5F5', marginTop:'-2%'}} zDepth={1}>
-      <br />
-      <br />
-      <h1 style={{textAlign:'center'}}>Contact Me</h1>
-      <br />
-      <div style={{argin:'auto', display:'flex'}}>
-    <ContactForm style={{marginLeft:'20%'}}/>
-    <div style={{margin:'auto'}}>
-    <span style={{fontSize:'40px', textAlign:'center'}}>CONNECT</span>
-    <br/>
-    <span style={{fontSize:'40px'}}>4084428474</span>
-    <br/>
-    <a href="http://instagram.com" target="_blank"><img height="100px" width="100px"src="http://www.freelogovectors.net/wp-content/uploads/2016/12/Instagram_Icon.png"/></a>
-    {/* <br /> */}
-    <a href="http://facebook.com" target="_blank"><img height="100px" width="120px"src="http://pluspng.com/img-png/png-facebook-logo-for-email-marketing-you-can-trust-1000.png"/></a>
+      {/* <div className="sun">
+    <div className="ray_box">
+        <div className="ray ray1"></div>
     </div>
-      </div>
+</div> */}
       <br />
-        <footer style={{textAlign:'center'}}>
+      <br />
+      <h1 style={{textAlign:'center', marginTop:'.5%', marginBottom:'1.5%'}}>Contact Me</h1>
+    <div style={{marginLeft:'39%', marginBottom:'2%'}}>
+    <a href="http://instagram.com" target="_blank"><img height="70px" width="70px"src="http://www.freelogovectors.net/wp-content/uploads/2016/12/Instagram_Icon.png"/></a>
+    <a style={{paddingLeft:'5%'}} href="http://instagram.com" target="_blank"><img height="70px" width="70px"src="https://png.icons8.com/metro/1600/phone.png"/></a>
+    <a style={{paddingLeft:'5%'}} href="http://facebook.com" target="_blank"><img height="70px" width="80px"src="http://pluspng.com/img-png/png-facebook-logo-for-email-marketing-you-can-trust-1000.png"/></a>
+    </div>
+    <ContactForm style={{marginLeft:'40%'}}/>
+      <br />
+        <footer style={{textAlign:'center', marginTop:'1%'}}>
           Designed by Kenneth Laprelle
       </footer>
       <br />

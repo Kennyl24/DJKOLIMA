@@ -12,6 +12,7 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route path="/#Content" component={HomePage} />
+      <Route path="/#About" component={HomePage} />
       <Route exact path="/gallery" component={Gallery}/>
       <Route exact path="/disc" component={TurnTable}/>
       <Route exact path="/videos" component={Videos}/>

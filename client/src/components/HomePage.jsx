@@ -29,8 +29,8 @@ class HomePage extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <LeadBar/>
-        {/* <Introduction/> */}
-        <AboutMe/>
+        <Introduction/>
+        {/* <AboutMe/> */}
         {/* <TurnTable/> */}
         <FrontImages/>
         <BottomNav id="Content"/>

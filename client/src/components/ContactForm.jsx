@@ -94,7 +94,13 @@ messageChange(event){
 }
 render(){
   return (
-  <div style={{width:'40%', marginLeft:'20%'}}>
+  <div style={{width:'40%', marginLeft:'30%',
+  boxSizing: 'content-box',
+  border: 'solid rgb(255, 255, 255) 2px',
+  padding: '15px',
+  boxShadow: '5px 5px 5px 5px black',
+  backgroundColor:'white',
+  }}>
     <TextField
           id="search"
           // label="Search field"
@@ -163,7 +169,7 @@ render(){
           fullWidth={true}
         />
     <br/>
-     <Button variant="raised" color="secondary" style={{position:'relative', marginTop:'20px'}}>
+     <Button variant="raised" color="secondary" style={{position:'relative', marginLeft:'40%', marginTop:'20px'}}>
       Submit
     </Button>
     <br />
